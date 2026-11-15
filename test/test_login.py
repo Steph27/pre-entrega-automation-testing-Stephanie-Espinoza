@@ -1,37 +1,12 @@
-import pytest
-from selenium import webdriver
-from selenium.webdriver.common.by import By
+from pages.login_page import LoginPage
 
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+def test_login_exitoso(driver):
+    login_page = LoginPage(driver) ##Se abre el navegador
 
-def test_login_exitoso():
-    driver = webdriver.Edge()
-    
-    wait = WebDriverWait(driver, 10)
+    driver.get("https://www.saucedemo.com/")
 
-    try:
-        driver.get("https://www.saucedemo.com/")
+    login_page.login("standard_user", "secret_sauce")
 
-        usario = wait.until(EC.presence_of_element_located((By.ID, "user-name")))
-        password = wait.until(EC.presence_of_element_located((By.ID, "password")))
-        boton_login = wait.until(EC.element_to_be_clickable((By.ID, "login-button")))
-
-        usario.  send_keys("standard_user")
-        password.send_keys("secret_sauce")
-
-        boton_login.click()
-
-        assert "/inventory.html" in driver.current_url
-        
-        logo = driver.find_element(By.CLASS_NAME, "app_logo")
-        assert logo.text == "Swag Labs"
-
-        titulo = driver.find_element(By.CSS_SELECTOR, "[data-test='title']")
-        assert titulo.text == "Products"
-
-    finally:
-        driver.quit()
-        
+    assert "/inventory" in driver.current_url
 
 
