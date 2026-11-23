@@ -3,6 +3,8 @@ from selenium import webdriver
 
 @pytest.fixture
 def driver():
+    #options = webdriver.EdgeOptions() ##En mi caso no hizo falta poner incognito
+    #options.add_argument("--incognito")
     driver = webdriver.Edge()
     driver.implicitly_wait(10)
     yield driver
