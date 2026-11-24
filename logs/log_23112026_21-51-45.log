@@ -1,0 +1,8 @@
+2026-11-23 21:53:13,090 - ERROR - talento_tech - Error durante la prueba de tiempo de respuesta
+Traceback (most recent call last):
+  File "C:\Users\Stephanie\Desktop\curso-automation-testing\Preentrega\test\test_api.py", line 92, in test_eliminar_usuario
+    assert response.elapsed.total_seconds() < 2
+AssertionError: assert 15.586611 < 2
+ +  where 15.586611 = <built-in method total_seconds of datetime.timedelta object at 0x0000018E9DF79740>()
+ +    where <built-in method total_seconds of datetime.timedelta object at 0x0000018E9DF79740> = datetime.timedelta(seconds=15, microseconds=586611).total_seconds
+ +      where datetime.timedelta(seconds=15, microseconds=586611) = <Response [204]>.elapsed

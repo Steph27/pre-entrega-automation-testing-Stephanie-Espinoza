@@ -1,0 +1,16 @@
+2026-11-23 13:22:57,076 - WARNING - selenium.webdriver.common.selenium_manager - The msedgedriver version (157.0.4341.60) detected in PATH at C:\edgedriver_win64\msedgedriver.exe might not be compatible with the detected MicrosoftEdge version (158.0.4370.33); currently, msedgedriver 158.0.4370.33 is recommended for MicrosoftEdge 158.*, so it is advised to delete the driver in PATH and retry
+2026-11-23 13:22:59,152 - INFO - talento_tech - Incializando pruebas de inventario
+2026-11-23 13:22:59,152 - INFO - talento_tech - Ingreso a la pagina web
+2026-11-23 13:22:59,857 - INFO - talento_tech - Ingreso de credenciales para iniciar sesion
+2026-11-23 13:23:00,298 - INFO - talento_tech - Sesion iniciada correctamente
+2026-11-23 13:23:00,403 - INFO - talento_tech - Productos de la pagina web capturados
+2026-11-23 13:23:00,403 - INFO - talento_tech - Inciando prueba de verificacion de existencia de al menos un producto
+2026-11-23 13:23:00,403 - INFO - talento_tech - Prueba exitosa
+2026-11-23 13:23:00,403 - INFO - talento_tech - Iniciando prueba de comparacion nombre de primer producto
+2026-11-23 13:23:00,451 - INFO - talento_tech - Prueba exitosa
+2026-11-23 13:23:00,451 - INFO - talento_tech - Inciando prueba de comparacion precio del primer producto
+2026-11-23 13:23:00,484 - INFO - talento_tech - Prueba exitosa
+2026-11-23 13:23:00,484 - INFO - talento_tech - Inciando prueba de visibilidad del menu en la pagina
+2026-11-23 13:23:00,610 - INFO - talento_tech - Prueba exitosa
+2026-11-23 13:23:00,610 - INFO - talento_tech - Iniciando prueba de visibilidad del filtro en la pagina
+2026-11-23 13:23:00,630 - INFO - talento_tech - prueba exitosa

@@ -1,6 +1,9 @@
 import requests
+import pytest
 import pytest_check as check
 
+
+@pytest.mark.flaky(reruns=2,reruns_delay=5)
 def test_obtener_usuario(base_url,headers):
     url = f"{base_url}/users/2"
 
@@ -32,7 +35,7 @@ def test_obtener_usuario(base_url,headers):
     # NIVEL 5: TIEMPO DE RESPUESTA
     assert response.elapsed.total_seconds() < 2
 
-
+@pytest.mark.flaky(reruns=2,reruns_delay=5)
 def test_crear_usuario(base_url,headers):
     url = f"{base_url}/users/"
 
@@ -53,25 +56,29 @@ def test_crear_usuario(base_url,headers):
 
     # NIVEL 3
     data = response.json()
-    check.is_in("email",data) #assert "email" in data
-    check.is_in("first_name",data) #assert "first_name" in data
-    check.is_in("last_name",data) #assert "last_name" in data
-    check.is_in("id",data) #assert "id" in data
+    #Verifica que los campos del usuario nuevo esten en DATA
+    check.is_in("email",data) 
+    check.is_in("first_name",data)
+    check.is_in("last_name",data)
+    check.is_in("id",data)
 
     # NIVEL 4
-    check.equal(data["email"],usuario["email"]) # assert data["email"] == usuario["email"]
-    check.equal(data["first_name"],usuario["first_name"]) # assert data["first_name"] == usuario["first_name"]
+    #Chequear que coincida el mail y el nombre
+    check.equal(data["email"],usuario["email"])
+    check.equal(data["first_name"],usuario["first_name"])
 
     # NIVEL 5: TIEMPO DE RESPUESTA
     assert response.elapsed.total_seconds() < 2
 
+@pytest.mark.flaky(reruns=2,reruns_delay=5)
 def test_eliminar_usuario(base_url,headers):
     url = f"{base_url}/users/2"
     
     response = requests.delete(url,headers=headers)
     
     # NIVEL 1: STATUS CODE
-    assert response.status_code == 204
+    codigo = response.status_code
+    assert codigo == 204
     
     # NIVEL 2: HEADERS
     assert "Content-Type" not in response.headers
